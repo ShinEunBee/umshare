@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.backnemo{
+	margin-top :10px;
+	margin-left : 50px;
+	margin-right:50px;
+	padding-top : 50px;
+	padding-left : 100px;
+	padding-right : 100px;
+	padding-bottom:50px;
+	background-color:#FFFFFF;
+	text-align:center;
+	border: 1px solid #D5D5D5;
+}
+
+
+.snip1535 {
+  background-color: #165E74;
+  border: none;
+  color: #F2F4F7;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-size: 13px;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  font-weight: 700;
+}
+
+.snip153 {
+  background-color: #165E74;
+  border: none;
+  color: #F2F4F7;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  font-size: 10px;
+  outline: none;
+  padding: 5px 15px 5px;
+  position: relative;
+}

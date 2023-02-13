@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>가계부_신은비</title>
+</head>
+<style>
+
+	.centered { display: table; margin-left: auto; margin-right: auto; width: 600px;}
+	
+	.left { text-align : left;}
+	.right { text-align : right;}
+	.center { text-align : center;}
+	
+	.bcenter{ margin-left: auto; margin-right: auto; width: 600px;}
+	
+	.numcolor { background-color : #0000FF; color : white; }
+	.lstcolor { background-color : #FFE650; }
+	.titcolor { background-color : #80E12A; }
+	.sumcolor { background-color : #4AB34A; }
+	.mns { color : red; }
+	
+	li { list-style-type: upper-roman; text-align : center;}
+	
+	.tdwidth { width : 25% ;  text-align : center;}
+	
+</style>
+
+<script>
+
+var money1 = 300000;
+var money2 = 200000;
+var money3 = 2000000;
+	
+function AddComma(data_value) {
+
+	return Number(data_value).toLocaleString('en');
+
+}
+
+	
+</script>
+<body>
+<b class = "bcenter">가계부</b>
+	<table class = "centered">
+		<tr class="titcolor">
+			<td rowspan="8" class="numcolor">1</td>
+		    <td class = "tdwidth">날짜 : 2019/12/01</td>
+		    <td class = "tdwidth">수입</td>
+		    <td colspan = "2"><script>document.write(AddComma(money1));</script></td>
+		</tr>
+		<tr class="titcolor">
+		    <td class = "tdwidth">번호</td>
+		    <td class = "tdwidth">품목</td>
+		    <td class = "tdwidth">가격</td>
+		    <td class = "tdwidth">구입처</td>
+		</tr>
+
+		<script>
+			var arr = new Array();
+			
+			arr = [['1','과자',10000,'인하슈퍼'],['1','콜라',1500,'인하슈퍼'],['1','우유',6000,'인하슈퍼']]
+			
+			//arr.sort(function(a, b) {
+			//	return b[3]-a[3];
+			//})
+		
+			arr.sort(compStringReverse)
+			
+			function compStringReverse(a, b) {
+			  if (a[3] > b[3]) return -1;
+			  if (b[3] > a[3]) return 1;
+			  return 0;
+			}
+			
+			var sum1 = 0;
+			
+			for(var a= 0; a<arr.length; a++){
+				sum1 = sum1 + arr[a][2];
+			}
+				
+			//document.write('<li class="lstcolor">');
+			//document.write('</li>');
+			//document.write('<li class="lstcolor">');
+			//document.write('</li>');
+			//document.write('<li class="lstcolor">');
+			//document.write('</li>');
+			
+			document.write('<ul>');
+			for (var i=0; i<arr.length; i++){	
+				document.write('<tr class="lstcolor">');
+				document.write('<td>');
+				document.write('<li></li>');
+				document.write('</td>');
+				document.write('<td>');
+				document.write(arr[i][1]);
+				document.write('</td>');
+				document.write('<td class="right">');
+				document.write(AddComma(arr[i][2]));
+				document.write('</td>');
+				document.write('<td>');
+				document.write(arr[i][3]);
+				document.write('</td>');
+				document.write('</tr>');	
+			}
+			document.write('</ul>');
+			
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("개수");
+			document.write('</td>');
+			document.write('<td  colspan = "3">');
+			document.write(arr.length);
+			document.write('</td>');
+			document.write('</tr>');
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("총지출");
+			document.write('</td>');
+			document.write('<td  colspan = "3">');
+			document.write(AddComma(sum1));
+			document.write('</td>');
+			document.write('</tr>');
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("잔액");
+			document.write('</td>');
+			if (money1-sum1 < 0){
+				document.write('<td  colspan = "3" class = "mns">');
+				document.write("[적자]");
+				document.write(AddComma(money1-sum1));
+			}else{
+				document.write('<td  colspan = "3">');
+				document.write(AddComma(money1-sum1));
+			}
+			document.write('</td>');
+			document.write('</tr>');
+		</script>
+		
+		
+		<tr class="titcolor">
+			<td rowspan="9" class="numcolor">2</td>
+		    <td class = "tdwidth">날짜 : 2019/12/02</td>
+		    <td class = "tdwidth">수입</td>
+		    <td colspan = "2"><script>document.write(AddComma(money2));</script></td>
+		</tr>
+		<tr class="titcolor">
+		    <td class = "tdwidth">번호</td>
+		    <td class = "tdwidth">품목</td>
+		    <td class = "tdwidth">가격</td>
+		    <td class = "tdwidth">구입처</td>
+		</tr>
+		<script>
+			var arr2 = new Array();
+			
+			arr2 = [['1','볼펜',1000,'인하문구'],['1','노트',10000,'인하문구'],['1','시계',100000,'인하금방'],['1','책',10000,'공룡서점']]
+		
+			//arr2.sort(function(a, b) {
+			//	return b[3]-a[3];
+			//})
+			
+			arr2.sort(compStringReverse)
+			
+			function compStringReverse(a, b) {
+			  if (a[3] > b[3]) return -1;
+			  if (b[3] > a[3]) return 1;
+			  return 0;
+			}
+			
+			var sum2 = 0;
+			
+			for(var a1= 0; a1<arr2.length; a1++){
+				sum2 = sum2 + arr2[a1][2];
+			}
+			
+			
+			for (var i1=0; i1<arr2.length; i1++){
+					document.write('<tr class="lstcolor">');
+					document.write('<td class="roman">');
+					document.write(i1+1);
+					document.write('</td>');
+					document.write('<td >');
+					document.write(arr2[i1][1]);
+					document.write('</td>');
+					document.write('<td class="right">');
+					document.write(AddComma(arr2[i1][2]));
+					document.write('</td>');
+					document.write('<td>');
+					document.write(arr2[i1][3]);
+					document.write('</td>');
+					document.write('</tr>');
+			}
+			
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("개수");
+			document.write('</td>');
+			document.write('<td  colspan = "3">');
+			document.write(arr2.length);
+			document.write('</td>');
+			document.write('</tr>');
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("총지출");
+			document.write('</td>');
+			document.write('<td  colspan = "3">');
+			document.write(AddComma(sum2));
+			document.write('</td>');
+			document.write('</tr>');
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("잔액");
+			document.write('</td>');
+			if (money2-sum2 < 0){
+				document.write('<td  colspan = "3" class = "mns">');
+				document.write("[적자]");
+				document.write(AddComma(money2-sum2));
+			}else{
+				document.write('<td  colspan = "3">');
+				document.write(AddComma(money2-sum2));
+			}
+			document.write('</td>');
+			document.write('</tr>');
+		</script>
+	<tr class="titcolor">
+			<td rowspan="12" class="numcolor">3</td>
+		    <td class = "tdwidth">날짜 : 2019/12/03</td>
+		    <td class = "tdwidth">수입</td>
+		    <td colspan = "2"><script>document.write(AddComma(money3));</script></td>
+		</tr>
+		<tr class="titcolor">
+		    <td class = "tdwidth">번호</td>
+		    <td class = "tdwidth">품목</td>
+		    <td class = "tdwidth">가격</td>
+		    <td class = "tdwidth">구입처</td>
+		</tr>
+		<script>
+			var arr3 = new Array();
+			
+			arr3 = [['1','인형',10000,'인하슈퍼'],['1','컴퓨터',2000000,'컴퓨터세상'],['1','모니터',105000,'컴퓨터세상'],['1','껌',100,'인하슈퍼'],['1','CD',5000,'신나라레코드'],['1','빵',1000,'빵시장'],['1','콩나물',1000,'동네슈퍼']];
+			
+			var sum3 = 0;
+			
+			
+			//arr3.sort(function(a, b) {
+			//	return b[2]-a[2];
+			//})
+			
+			arr3.sort(compStringReverse)
+			
+			function compStringReverse(a, b) {
+			  if (a[3] > b[3]) return -1;
+			  if (b[3] > a[3]) return 1;
+			  return 0;
+			}
+			
+			for(var a3= 0; a3<arr3.length; a3++){
+				sum3 = sum3 + arr3[a3][2];
+			}
+			
+			
+			for (var i3=0; i3<arr3.length; i3++){
+					document.write('<tr class="lstcolor">');
+					document.write('<td class="roman">');
+					document.write(i3+1);
+					document.write('</td>');
+					document.write('<td >');
+					document.write(arr3[i3][1]);
+					document.write('</td>');
+					document.write('<td class="right">');
+					document.write(AddComma(arr3[i3][2]));
+					document.write('</td>');
+					document.write('<td>');
+					document.write(arr3[i3][3]);
+					document.write('</td>');
+					document.write('</tr>');
+			}
+			
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("개수");
+			document.write('</td>');
+			document.write('<td  colspan = "3">');
+			document.write(arr3.length);
+			document.write('</td>');
+			document.write('</tr>');
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("총지출");
+			document.write('</td>');
+			document.write('<td  colspan = "3">');
+			document.write(AddComma(sum3));
+			document.write('</td>');
+			document.write('</tr>');
+			document.write('<tr class="sumcolor">');
+			document.write('<td class = "center">');
+			document.write("잔액");
+			document.write('</td>');
+			if (money3-sum3 < 0){
+				document.write('<td  colspan = "3" class = "mns">');
+				document.write("[적자]");
+				document.write(AddComma(money3-sum3));
+			}else{
+				document.write('<td  colspan = "3">');
+				document.write(AddComma(money3-sum3));
+			}
+			document.write('</td>');
+			document.write('</tr>');
+		</script>
+	</table>
+
+</body>
+</html>
