@@ -25,9 +25,9 @@
 
 ## 🔵 정보
 
-||데이터베이스|주언어|서버|
+||데이터베이스|주 사용 언어|서버|
 |:---|:---|:---|:---|
-|사용|MySQL|JSP|TomCat|
+|사용|MySQL|JS , JSP|TomCat|
 |Tools|WorkBench|Eclipse||
 
 ||메일 발송|지도 관련|위치 명칭|
